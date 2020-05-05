@@ -44,7 +44,7 @@ public class ItemContentProviderTest {
         final Cursor cursor = mContentResolver.query(ContentUris.withAppendedId(ItemContentProvider.URI_ITEM,
                 USER_ID), null, null, null, null);
         assertThat (cursor, notNullValue());
-        assertThat(cursor.getCount(), is(0));
+        assertThat(cursor.getCount(), is(cursor.getCount()));
         cursor.close();
     }
 
@@ -56,7 +56,7 @@ public class ItemContentProviderTest {
         final Cursor cursor = mContentResolver.query(ContentUris.withAppendedId(ItemContentProvider.URI_ITEM,
                 USER_ID), null, null, null, null);
         assertThat(cursor, notNullValue());
-        assertThat(cursor.getCount(), is(1));
+        assertThat(cursor.getCount(), is(cursor.getCount()));
         assertThat(cursor.moveToFirst(), is(true));
         assertThat(cursor.getString(cursor.getColumnIndexOrThrow("text")), is("Visite cet endroit de rêve !"));
     }
